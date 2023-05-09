@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'second_window.ui'
+# Form implementation generated from reading ui file 'sw_test.ui'
 #
 # Created by: PyQt6 UI code generator 6.5.0
 #
@@ -12,20 +12,29 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_SecondWindow(object):
     def setupUi(self, SecondWindow):
         SecondWindow.setObjectName("SecondWindow")
-        SecondWindow.resize(395, 327)
+        SecondWindow.resize(800, 600)
+        SecondWindow.setMinimumSize(QtCore.QSize(800, 600))
         self.centralwidget = QtWidgets.QWidget(parent=SecondWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setObjectName("verticalLayout")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName("gridLayout")
         self.textEdit = QtWidgets.QTextEdit(parent=self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
+        self.textEdit.setSizePolicy(sizePolicy)
         self.textEdit.setObjectName("textEdit")
-        self.verticalLayout.addWidget(self.textEdit)
+        self.gridLayout.addWidget(self.textEdit, 0, 0, 1, 1)
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton.setObjectName("pushButton")
-        self.verticalLayout.addWidget(self.pushButton)
+        self.gridLayout.addWidget(self.pushButton, 0, 2, 1, 1)
+        self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.gridLayout.addWidget(self.pushButton_2, 0, 1, 1, 1)
         SecondWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=SecondWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 395, 18))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
         self.menubar.setObjectName("menubar")
         SecondWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=SecondWindow)
@@ -34,9 +43,26 @@ class Ui_SecondWindow(object):
 
         self.retranslateUi(SecondWindow)
         self.pushButton.clicked.connect(SecondWindow.search_link) # type: ignore
+        self.pushButton_2.clicked.connect(SecondWindow.confirm_dfs) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(SecondWindow)
 
     def retranslateUi(self, SecondWindow):
         _translate = QtCore.QCoreApplication.translate
         SecondWindow.setWindowTitle(_translate("SecondWindow", "MainWindow"))
+        self.textEdit.setHtml(_translate("SecondWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">https://en.m.wikipedia.org/wiki/List_of_masters_world_records_in_road_running</p></body></html>"))
         self.pushButton.setText(_translate("SecondWindow", "Запросить"))
+        self.pushButton_2.setText(_translate("SecondWindow", "OK"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    SecondWindow = QtWidgets.QMainWindow()
+    ui = Ui_SecondWindow()
+    ui.setupUi(SecondWindow)
+    SecondWindow.show()
+    sys.exit(app.exec())
