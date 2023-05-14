@@ -7,7 +7,6 @@ from MWClass import MainWindow
 app = QApplication([])
 window = MainWindow()
 window.show()  # Важно: окно по умолчанию скрыто.
-
 # Запускаем цикл событий.
 app.exec()
 # pyuic6 -o second_window.py -x sw_test.ui
