@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
-# import pandas as pd
-
-# Постоение распределения
+# Постоение диаграммы рассеяния
 def rasse(df, x1, y1):
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.scatter(x=df[x1], y=df[y1])
